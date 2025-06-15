@@ -7,7 +7,11 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: ['http://localhost:3001', 'http://localhost:3000'], // Add your frontend URLs
+    origin: [
+        'http://localhost:3001', 
+        'http://localhost:3000',
+        'https://epilepsy-frontend.vercel.app'
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
