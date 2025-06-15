@@ -1,8 +1,18 @@
 const express = require('express');
+const cors = require('cors');
 const { sequelize } = require('./config/server-config');
 const routes = require('./routes');
 
 const app = express();
+
+// CORS configuration
+app.use(cors({
+    origin: ['http://localhost:3001', 'http://localhost:3000'], // Add your frontend URLs
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
+
 app.use(express.json());
 
 // Detailed request logging middleware
