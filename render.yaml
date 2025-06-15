@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: epilepsy
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: railway
+          property: host
+      - key: DB_USER
+        fromDatabase:
+          name: railway
+          property: user
+      - key: DB_PASS
+        fromDatabase:
+          name: railway
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: railway
+          property: database
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+git 
